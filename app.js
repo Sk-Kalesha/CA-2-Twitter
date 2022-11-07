@@ -8,12 +8,12 @@ const jwt = require("jsonwebtoken");
 const app = express();
 app.use(express.json());
 
-const databasePath = path.join(__dirname, "twitterClone.db");
+const dbPath = path.join(__dirname, "twitterClone.db");
 
 const initializeDbAndStartServer = async () => {
   try {
     database = await open({
-      filename: databasePath,
+      filename: dbPath,
       driver: sqlite3.Database,
     });
     app.listen(3000, () => {
